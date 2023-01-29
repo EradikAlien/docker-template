@@ -1,0 +1,50 @@
+version: "3"
+
+services:
+  ## PHP-Apache service
+  server:
+    build:
+      context: .
+    container_name: template-webserver
+    ports:
+      - 80:80
+    restart: always
+    volumes:
+      - ./source:/var/www/html
+    env_file:
+      - ./docker.env
+    networks:
+      - template
+
+  ## Mariadb service
+  database:
+    image: mariadb:10.4.2
+    container_name: template-database
+    restart: always
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d/
+      - template_data:/var/lib/mysql
+    env_file:
+      - ./docker.env
+    networks:
+      - template
+
+  ## PhpMyAdmin
+  myadmin:
+    image: phpmyadmin/phpmyadmin:4.8.1
+    container_name: template-phpmyadmin
+    ports:
+      - 8081:80
+    restart: always
+    env_file:
+      - ./docker.env
+    depends_on:
+      - database
+    networks:
+      - template
+
+networks:
+  template:
+
+volumes:
+  template_data:
