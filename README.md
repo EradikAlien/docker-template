@@ -1,11 +1,35 @@
-## Template pour docker
+---
 
-Un repertoire avec les fichiers nécéssaires à la création d'un container Docker, prêt à l'emploi.
+# Docker Template for PHP 8, Apache, MariaDB, and phpMyAdmin
 
-### Mode d'emploi
+Welcome to the Docker template for PHP 8, Apache, MariaDB, and phpMyAdmin!
 
-- Cloner ce repo dans le dossier voulu,
-- Ouvrir *docker-compose.yml* et *docker.env* dans votre éditeur de code,
-- Remplacer les occurences "template" par le nom choisi (attention à rester cohérent),
-- Se rendre dans le dossier via le terminal et utilisé  *"docker-compose up"* .
-- Dans docker, le container est créé. Attention cependant au chiffre du localhost, si un container tourne déjà avec le 80:80 vous devrez soit arrêter ce dernier ou bien changer le chiffre pour un autre dans le *docker-compose.yml*.
+This repository contains the necessary files to create a Docker container that is ready to use. It includes PHP 8, Apache, MariaDB, and phpMyAdmin, making it easy to set up a development environment for PHP web applications.
+
+## Usage
+
+To use this Docker template, follow these steps:
+
+1. Clone this repository to the desired directory:
+
+   ```
+   git clone https://github.com/your-username/docker-template-php8-apache-mariadb-phpmyadmin.git
+   ```
+
+2. Open `docker-compose.yml` and `docker.env` files in your code editor.
+
+3. Replace all occurrences of `template` with the desired name for your project (be consistent with the naming).
+
+4. Navigate to the cloned directory in the terminal and run:
+
+   ```
+   docker-compose up
+   ```
+
+5. Docker will create the container for you. However, make sure that the localhost port number is not already in use. If a container is already running on port 80:80, you will need to either stop it or change the port number in the `docker-compose.yml` file.
+
+## Credits
+
+This Docker template was created by Laurent.
+
+---
